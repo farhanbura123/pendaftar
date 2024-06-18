@@ -1,0 +1,289 @@
+/* CSS untuk mengubah warna teks menjadi putih */
+body,
+.navbar-nav .nav-link,
+.section-title,
+.about-text,
+.list-group-item,
+#kontak p,
+.footer {
+    color: white !important;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+    /* warna latar belakang icon toggler */
+}
+
+/* Tambahan untuk ikon di bagian syarat */
+#syarat .list-group-item i {
+    color: white;
+    /* warna ikon */
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    color: white;
+    text-align: center;
+}
+
+.footer-gradient {
+    background-color: rgb(94, 235, 94);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-text {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home {
+    margin-top: 20px;
+}
+
+.welcome-text h1 {
+    margin-bottom: 20px;
+}
+
+.carousel-inner img {
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.navbar-gradient {
+    background: linear-gradient(90deg, rgba(34, 193, 195, 1) 0%, rgba(34, 193, 100, 1) 100%);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    background-color: rgb(94, 235, 94);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-nav .nav-link {
+    color: black !important;
+    position: relative;
+}
+
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover::before {
+    visibility: visible;
+    width: 100%;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus {
+    background: linear-gradient(45deg, rgba(144, 238, 144, 1) 0%, rgba(34, 139, 34, 1) 100%);
+    border-color: transparent;
+    color: white;
+}
+
+.navbar-brand img {
+    width: 30px;
+    height: 30px;
+}
+
+.text-black {
+    color: black !important;
+}
+
+/* Custom navbar shadow */
+.navbar {
+    box-shadow: 0 8px 6px -6px black;
+}
+
+/* Custom carousel animation */
+.carousel-fade .carousel-inner .carousel-item {
+    transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .carousel-item.active,
+.carousel-fade .carousel-inner .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-inner .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+}
+
+.carousel-fade .carousel-inner .carousel-item-next,
+.carousel-fade .carousel-inner .carousel-item-prev,
+.carousel-fade .carousel-inner .carousel-item.active.carousel-item-left,
+.carousel-fade .carousel-inner .carousel-item.active.carousel-item-right {
+    opacity: 0;
+}
+
+.carousel-fade .carousel-inner .carousel-item-next.left,
+.carousel-fade .carousel-inner .carousel-item-prev.right {
+    opacity: 1;
+}
+
+/* Custom section title */
+.section-title {
+    font-size: 2.5rem;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* Custom about image */
+.about-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+.section-title {
+    display: inline-block;
+    position: relative;
+    font-size: 2.5rem;
+}
+
+
+.about-description {
+    font-size: 1.2rem;
+    /* Ukuran font diperbesar */
+}
+
+/* CSS untuk gambar di sebelah deskripsi About Us */
+.about-image {
+    width: 100%;
+    /* Lebar gambar 100% dari parent */
+    height: auto;
+    /* Tinggi otomatis sesuai proporsi */
+    border-radius: 10px;
+    /* Sudut gambar dibulatkan */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Bayangan lembut */
+}
+
+.about-text {
+    font-size: 1.25rem;
+    /* Ukuran teks deskripsi */
+    text-align: left;
+    /* Penjajaran teks */
+}
+
+/* Custom style for Syarat section */
+#syarat {
+    text-align: center;
+}
+
+#syarat h2 {
+    margin-bottom: 30px;
+}
+
+#syarat .list-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Menjadikan list item berada di sebelah kiri */
+}
+
+#syarat .list-group-item {
+    font-size: 1.5rem;
+    /* Ukuran teks diperbesar */
+    border: none;
+    background-color: transparent;
+    /* Menghapus latar belakang item list */
+    display: flex;
+    align-items: center;
+}
+
+#syarat .list-group-item i {
+    margin-right: 10px;
+    font-size: 1.8rem;
+    /* Ukuran ikon */
+}
+
+#kontak h2 {
+    font-size: 3rem;
+    /* Memperbesar ukuran teks */
+    border-bottom: 2px solid black;
+    /* Menambahkan garis bawah */
+    padding-bottom: 10px;
+    /* Jarak antara teks dan garis bawah */
+    margin-bottom: 30px;
+    /* Jarak bawah dari judul ke konten */
+}
+
+#kontak .section-title {
+    font-size: 3rem;
+    /* Memperbesar ukuran teks judul */
+}
+
+#kontak p {
+    font-size: 1.5rem;
+    /* Memperbesar ukuran teks paragraf */
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: red;
+    border-color: transparent;
+}
+
+.btn-logout,
+.btn-logout:hover,
+.btn-logout:focus {
+    background: linear-gradient(45deg, rgba(144, 238, 144, 1) 0%, rgba(34, 139, 34, 1) 100%);
+    border-color: transparent;
+    color: white;
+}
+
+.navbar-brand img {
+    width: 55px;
+    /* Atur ukuran lebar sesuai keinginan */
+    height: 45px;
+    /* Atur ukuran tinggi sesuai keinginan */
+}
+
+.carousel-item {
+    height: 75vh;
+    /* Full height */
+    min-height: 300px;
+}
+
+.carousel-item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-height: 100vh;
+    min-width: 100vw;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.welcome-text {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin-top: 30px;
+    /* Add margin to create space between carousel and welcome text */
+}
+
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+

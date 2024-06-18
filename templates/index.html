@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="{{url_for('static', filename='logoo.png')}}" />
+    <link rel="shortcut icon" href="{{url_for('static', filename='logoo.png')}}" type="image/x-icon" />
+    <link rel="icon" href="{{url_for('static', filename='logoo.png')}}" type="image/x-icon" />
+    <title>PPDB Siswa MTs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+    .rounded-image {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<body class="bg-success">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar">
+        <a class="navbar-brand" href="{{ url_for('home_user') }}">
+            <img src="{{ url_for('static', filename='logoo.png') }}" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-us">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#syarat">Syarat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#kontak">Kontak Kami</a>
+                </li>
+            </ul>
+            <a class="btn btn-primary ml-auto" href="/login">
+                <i class="fas fa-sign-in-alt"></i> <span class="text-white">Login</span>
+            </a>
+        </div>
+    </nav>
+
+    <div id="home" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='slide1.jpeg') }}" class="d-block w-100" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='slide2.jpeg') }}" class="d-block w-100" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='slide3.jpeg') }}" class="d-block w-100" alt="Slide 3">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#home" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#home" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="welcome-text text-white">
+        <div class="text-center mb-4 mt-4">
+            <img src="{{ url_for('static', filename='logoo.png') }}" alt="Logo Sekolah"
+                style="width: 150px; height: auto;">
+            <img src="{{ url_for('static', filename='kemenag.png') }}" alt="Logo Sekolah"
+                style="width: 150px; height: auto;">
+        </div>
+        <h1>SELAMAT DATANG DI PPDB ONLINE <br> SEKOLAH MTSS HUBBUL WATHAN</h1>
+    </div>
+
+    <div class="container mt-5">
+        <div class="text-center">
+            <a class="btn btn-primary" href="/register">
+                <i class="fas fa-user-plus"></i> <span class="text-white">Daftar</span>
+            </a>
+        </div>
+        <br>
+        <div id="about-us" class="my-5 text-center text-black">
+            <h2 class="section-title">About Us</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{ url_for('static', filename='school.jpeg') }}"  class="img-fluid rounded-image" alt="School Image">
+                </div>
+                <div class="col-md-8">
+                    <p class="about-text">Deskripsi sekolah yang membuat laman PPDB ini. MTSS HUBBUL WATHAN adalah salah
+                        satu
+                        satuan pendidikan dengan jenjang MTs di Desa Toli-Toli, Kec. Lalonggasumeeto, Kab. Konawe,
+                        Sulawesi Tenggara. MTs swasta ini memulai kegiatan pendidikan belajar mengajarnya pada tahun
+                        1983. Dalam menjalankan kegiatannya, MTSS HUBBUL WATHAN berada di bawah naungan Kementerian
+                        Agama.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="syarat" class="my-5 text-black">
+            <h2 class="section-title">Syarat Pendaftaran</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><i class="fas fa-graduation-cap fa-fw"></i> Ijazah TK</li>
+                <li class="list-group-item"><i class="fas fa-id-card fa-fw"></i> KTP orang tua ayah dan ibu</li>
+                <li class="list-group-item"><i class="fas fa-file-alt fa-fw"></i> Surat bantuan pendidikan PIP (Jika ada)</li>
+                <li class="list-group-item"><i class="fas fa-id-card fa-fw"></i> Kartu keluarga</li>
+                <li class="list-group-item"><i class="fas fa-file-signature fa-fw"></i> Surat keterangan pindah atau SKP
+                    (jika pindahan dari SD)</li>
+            </ul>
+        </div>
+
+        <div id="kontak" class="my-5 text-center text-black">
+            <h2 class="section-title">Kontak Kami</h2>
+            <p>MADRASAH TSANAWIYAH HUBBUL WATHAN</p>
+            <p>JLN.POROS GUNUNG LABAGA, Desa Toli-Toli, Kec. Lalonggasumeeto, Kab.<br>
+                Konawe, Sulawesi Tenggara.</p>
+            <div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31756.530829868796!2d122.54510552858813!3d-4.137529701353276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcbf1a2f6896f7f%3A0x303e53e86912bfb7!2sMadrasah%20Ts.%20Hubbul%20Wathan!5e0!3m2!1sen!2sid!4v1641841525962!5m2!1sen!2sid"
+                    width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p><i class="fas fa-envelope"></i> <a>Mtss.hbwtolitoli@gmail.com</a></p>
+        </div>
+    </div>
+    <footer class="footer text-center footer-gradient">
+        <div class="container">
+            <span class="text-muted">PPDB Online © MTSS HUBBUL WATHAN - 2024</span>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Smooth scrolling with no delay using vanilla JavaScript
+            document.querySelectorAll('a.nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        window.scrollTo({
+                            top: offsetTop - 80
+                            , // Adjusted scroll position to accommodate fixed navbar
+                            behavior: 'smooth' // Smooth scroll behavior
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

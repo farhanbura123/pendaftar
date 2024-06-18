@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="{{url_for('static', filename='logoo.png')}}" />
+    <link rel="shortcut icon" href="{{url_for('static', filename='logoo.png')}}" type="image/x-icon" />
+    <link rel="icon" href="{{url_for('static', filename='logoo.png')}}" type="image/x-icon" />
+    <title>Login Siswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            background-color: aqua;
+            background-image: url("../static/photo/logo2.jpeg");
+            color: gray;
+            border-radius: 10px;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: rgb(114, 202, 167);
+            color: brown;
+            border-radius: 10px;
+        }
+
+        h5 {
+            font-size: x-large;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-body {
+            text-align: center;
+            padding: 0px;
+            margin: 0;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+
+        .hover-text-danger:hover {
+            color: hsl(354, 77%, 28%) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card shadow-lg p-4 bg-success text-white" style="width: 22rem;">
+            <div class="card-body bg-success text-white">
+                <div class="text-center mb-1">
+                    <img src="../static/photo/logo4.png" alt="logo" class="mb-1" style="width: 250px;">
+                    <h5>Selamat datang Di
+                        Layanan PPDB Online<br>Mis Hubbul
+                        Wathan<br>Toli-Toli</h5>
+                </div>
+                <form id="loginForm" action="/login" method="POST">
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                                required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Kata sandi" required>
+                            <button class="btn btn-outline-secondary" type="button" id="showPasswordToggle"
+                                style="background-color: white;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">MASUK</button>
+                </form>
+                <div id="message" class="text-center mt-3"></div>
+                <div class="text-center mt-3">
+                    <a href="#" id="registerLink" class="text-decoration-none text-light hover-text-danger">Daftar
+                        Akun</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('showPasswordToggle').addEventListener('click', function () {
+            var passwordInput = document.getElementById('password');
+            var passwordToggleIcon = this.querySelector('i');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggleIcon.classList.remove('fa-eye');
+                passwordToggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordToggleIcon.classList.remove('fa-eye-slash');
+                passwordToggleIcon.classList.add('fa-eye');
+            }
+        });
+
+        $('#loginForm').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/login',
+                data: $('#loginForm').serialize(),
+                success: function (response) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login Berhasil',
+                        text: 'Mengarahkan ke halaman utama.',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    $('#loginForm')[0].reset();
+                    setTimeout(function () {
+                        window.location.href = '/home_user';
+                    }, 2000);
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Gagal',
+                        text: error.responseJSON && error.responseJSON.message ? error.responseJSON.message : 'Data tidak di temukan',
+                    });
+                }
+            });
+        });
+
+        $('#registerLink').click(function (event) {
+            event.preventDefault();
+            window.location.href = '/register';
+        });
+    </script>
+</body>
+
+</html>

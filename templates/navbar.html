@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar">
+    <a class="navbar-brand" href="{{ url_for('home_user') }}">
+        <img src="/static/logoo.png" width="40" height="40" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('home_user') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('pendaftaran_siswa') }}">Pendaftaran Siswa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('riwayat_pendaftaran') }}">Riwayat Pendaftaran</a>
+            </li>
+        </ul>
+        <a class="btn btn-logout" href="#" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</nav>
+
+<!-- sweat alert pop up untuk memberikan info pada user -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('logoutBtn').addEventListener('click', function (event) {
+        event.preventDefault();
+        Swal.fire({
+            icon: 'question',
+            title: 'Konfirmasi Logout',
+            text: 'Yakin ingin logout?',
+            showCancelButton: true,
+            confirmButtonText: 'Logout',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/logout',
+                    success: function (response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Logout Berhasil',
+                            text: 'Mengarahkan ke halaman utama.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(() => {
+                            window.location.href = '{{ url_for("index") }}';
+                        });
+                    },
+                    error: function (error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Gagal melakukan logout. Silahkan coba lagi.'
+                        });
+                    }
+                });
+            }
+        });
+    });
+</script>
